@@ -3,3 +3,18 @@ HostName github.com
 Port 0000
 User git
 IdentityFile ~/.ssh/github
+
+# Issues with github?
+# First check ssh running
+eval "$(ssh-agent -s)"
+
+# Then check list of loaded keys
+ssh-add -l
+
+# Not there?
+ssh-add ~/.ssh/yourkey
+# on OS X use -K to store passphrase in keychain
+
+# Github debug?
+ssh -T git@github.com
+ssh -vT git@github.com
